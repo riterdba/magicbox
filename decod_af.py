@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+'''Программа для дешифровки текстов, зашифрованных афинным шифром.'''
 def decoder():
     alf = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя'
-    x = int(input('Введите первый ключ:'))
+    x = int(input('Введите первый ключ:'))#НОД(x,y) = 1
     v = int(input('Введите второй ключ:'))
-    y = int(input('Введите кодировку:'))
+    y = int(input('Введите кодировку:'))#Кодировка русского алфавита 64
     text_cod = []
     final_cod = []
     final_text_cod = []
@@ -17,15 +18,14 @@ def decoder():
                 continue
     else:
         print('Ключ неверен.')
-    f = y
-    while True:
-        w = (f + 1) % x
-        if w == 1:
+    for i in range(1, y + 1):
+        f = x * i
+        m = f % y
+        if m == 1:
             break
-        else:
-            f += (f + 1)
-    f = f / 3
+    f = f / x
     f = int(f)
+    print(f)
     for j in text_cod:
         codd = (f * (j - v)) % y
         final_cod.append(codd)

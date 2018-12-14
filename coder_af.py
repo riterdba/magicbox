@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import pyperclip
 def coder_aff():
     alf = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя'
     x = int(input('Введите первый ключ:'))
@@ -19,12 +20,8 @@ def coder_aff():
         print('Ключ неверен.')
     for j in text_cod:
         codd = x * j + v
-        if codd < y:
-            final_cod.append(codd)
-        else:
-            while codd >= y:
-                codd = codd - y
-            final_cod.append(codd)
+        codd = codd % y
+        final_cod.append(codd)
     for z in final_cod:
             q = alf[z]
             final_text_cod.append(q)
