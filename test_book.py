@@ -14,7 +14,6 @@ def chastot():
     text = text.replace(';', '')
     text = text.replace('"', '')
     text = text.lower()
-    print(text)
     alf = 'абвгдежзийклмнопрстуфхцчшщъыьэюя '
     y = len(text)
     print(y)
@@ -22,7 +21,7 @@ def chastot():
         x = re.findall(i, text)
         x = len(x)
         z = (100 / float(y)) * x
-        "%.2f" % z
+        z = "%.2f" % z
 
         print('Буква:____{}____{}____{} %'.format(i, x, z))
 
